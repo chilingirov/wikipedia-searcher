@@ -37,10 +37,12 @@ window.onload = function() {
                 dataType: "jsonp",
                 success: function(response) {
                     var resLen = response.query.search.length;
+
                     if (resLen === 0) {
                         Wiki.results.innerHTML = Wiki.nothingFound;
                         console.log(response.query.search.length);
                     };
+                    Wiki.results.innerHTML = '<h2 class="no-results">We found ' + resLen + 'results</h2>'
                     for (var i = 0; i < resLen; i++) {
                         Wiki.results.innerHTML += '<div class="box"><h2>' + response.query.search[i].title + '</h2><p>' + response.query.search[i].snippet + ' ' + '<a target="_blank" href=https://en.wikipedia.org/?curid=' + response.query.search[i].pageid + ' >Read in Wikipedia</a>' + '</p></div>';
                     }

@@ -189,3 +189,7 @@ span {
 .box a {
     font-weight: 700;
 }
+
+.no-results {
+    color: #c06c84;
+}
