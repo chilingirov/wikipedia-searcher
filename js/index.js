@@ -6,6 +6,7 @@ window.onload = function() {
         results: document.getElementById("results"),
         urlAdress: "https://en.wikipedia.org/w/api.php",
         nothingFound: '<div class="box"><h2>Nothing found...</h2></div>',
+        writeSomething: '<div class="box"><h2>Write something in the search field...</h2></div>',
         clearBody: function() {
             this.results.innerHTML = "";
         }
@@ -23,10 +24,12 @@ window.onload = function() {
 
     };
 
-    function getData() {
-        Wiki.searchForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            Wiki.clearBody();
+    function submitForm(e) {
+        e.preventDefault();
+        Wiki.clearBody();
+        if (Wiki.searcherField.value === "") {
+            Wiki.results.innerHTML = Wiki.writeSomething;
+        } else {
             $.ajax({
                 url: Wiki.urlAdress,
                 data: { action: 'query', list: 'search', srsearch: Wiki.searcherField.value, format: 'json' },
@@ -34,7 +37,7 @@ window.onload = function() {
                 success: function(response) {
                     var resLen = response.query.search.length;
                     if (resLen === 0) {
-                        Wiki.results.innerHTML = nothingFound;
+                        Wiki.results.innerHTML = Wiki.nothingFound;
                         console.log(response.query.search.length);
                     };
                     for (var i = 0; i < resLen; i++) {
@@ -42,10 +45,22 @@ window.onload = function() {
                     }
                 }
             })
-            Wiki.blinker.classList.remove("blink");
-            Wiki.searcherField.classList.add("searchText");
-            Wiki.searcherField.classList.remove("searchActive");
-        });
+        }
+
+        Wiki.blinker.classList.remove("blink");
+        Wiki.searcherField.classList.add("searchText");
+        Wiki.searcherField.classList.remove("searchActive");
+    }
+
+    function getData() {
+        Wiki.searchForm.addEventListener("submit", submitForm);
+        window.addEventListener("keyup", function(e) {
+            e.preventDefault();
+            if (e.keyCode === 13) {
+                submitForm(e);
+                console.log("pressed enter");
+            }
+        })
 
     };
 
