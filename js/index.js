@@ -2,7 +2,7 @@ window.onload = function() {
     var Wiki = {
         searcherField: document.querySelector(".searchText"),
         blinker: document.querySelector("span"),
-        searchButton: document.querySelector(".buttonSearch"),
+        searchForm: document.querySelector("#searchForm"),
         results: document.getElementById("results"),
         urlAdress: "https://en.wikipedia.org/w/api.php",
         nothingFound: '<div class="box"><h2>Nothing found...</h2></div>',
@@ -25,7 +25,7 @@ window.onload = function() {
     };
 
     function getData() {
-        Wiki.searchButton.addEventListener("click", function(e) {
+        Wiki.searchForm.addEventListener("submit", function(e) {
             e.preventDefault();
             Wiki.clearBody();
             $.ajax({
