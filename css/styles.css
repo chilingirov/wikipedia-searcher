@@ -104,6 +104,11 @@ span {
     font-size: 1.875rem;
 }
 
+.logo a {
+    text-decoration: none;
+    color: #c06c84;
+}
+
 @media screen and (max-width:960px) {
     .buttonSearch {
         margin-top: 20px;
