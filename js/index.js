@@ -15,8 +15,7 @@ window.onload = function() {
 
 
     function focusBlink() {
-        Wiki.searcherField.addEventListener("focus", function(e) {
-            e.preventDefault();
+        Wiki.searcherField.addEventListener("focus", function() {
             Wiki.clearBody();
             Wiki.searcherField.classList.toggle("searchActive");
             Wiki.blinker.classList = "blink";
