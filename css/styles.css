@@ -104,7 +104,7 @@ span {
     font-size: 1.875rem;
 }
 
-.logo a {
+#logo {
     text-decoration: none;
     color: #c06c84;
 }
