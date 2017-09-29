@@ -18,6 +18,25 @@ section {
     margin-top: 100px;
 }
 
+footer {
+    font-size: 1.2rem;
+    margin-top: 40%;
+    text-align: center;
+    color: #c06c84;
+    font-family: 'Raleway', sans-serif;
+}
+
+footer a {
+    text-decoration: none;
+    color: #c06c84;
+    font-weight: bold;
+}
+
+footer p {
+    padding: 15px;
+    color: #c06c84;
+}
+
 .container {
     width: 960px;
     height: auto;
@@ -135,6 +154,9 @@ span {
     }
     section {
         margin-top: 100px;
+    }
+    footer {
+        margin-top: 10%;
     }
 }
 
