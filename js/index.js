@@ -27,6 +27,7 @@ window.onload = function() {
     function submitForm(e) {
         e.preventDefault();
         Wiki.clearBody();
+        Wiki.searcherField.blur();
         if (Wiki.searcherField.value === "") {
             Wiki.results.innerHTML = Wiki.writeSomething;
         } else {
@@ -58,13 +59,14 @@ window.onload = function() {
             e.preventDefault();
             if (e.keyCode === 13) {
                 submitForm(e);
+                Wiki.searcherField.blur();
                 console.log("pressed enter");
             }
         })
 
     };
-
-    getData();
     focusBlink();
+    getData();
+
 
 };
