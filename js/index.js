@@ -4,7 +4,7 @@ window.onload = function() {
         blinker: document.querySelector("span"),
         searchButton: document.querySelector(".buttonSearch"),
         results: document.getElementById("results"),
-        urlAdress: "http://en.wikipedia.org/w/api.php",
+        urlAdress: "https://en.wikipedia.org/w/api.php",
         nothingFound: '<div class="box"><h2>Nothing found...</h2></div>',
         clearBody: function() {
             this.results.innerHTML = "";
